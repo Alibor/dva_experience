@@ -45,7 +45,8 @@ PropTypes.string
 
 import { connect } from 'dva'  //用于route和model的连接
 //用于连接
-function mapStateToProps({ model的namespace }) {
+function mapStateToProps({ model的namespace }) {  //mapStateToProps用于监测state的变化,对应的compontent重新渲染
   return { model的namespace }
 }
+
 export default connect(mapStateToProps)(组件名称)
