@@ -48,5 +48,14 @@ import { connect } from 'dva'  //用于route和model的连接
 function mapStateToProps({ model的namespace }) {  //mapStateToProps用于监测state的变化,对应的compontent重新渲染
   return { model的namespace }
 }
-
 export default connect(mapStateToProps)(组件名称)
+
+import debounce from 'lodash.debounce';  //用于控制input输入框延时请求
+function getCity(value){
+    getCityList(value)
+}
+getCity = debounce(getCity,500)  //输入框变化并且0.5秒内没有输入才发送请求
+
+import moment from 'moment';  //用于控制时间格式
+const dateFormat = 'YYYY-MM-DD ';
+<RangePicker format={dateFormat} onChange={OK} ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}/>  //ant-design时间选择器格式
